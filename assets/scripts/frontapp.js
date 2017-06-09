@@ -50,7 +50,6 @@ $('.send').click(function(e){
 function addCards(){
 	var cardType = $('#cardtype').val();
 	$('#cards-panel').html('');
-	$('#' + cardType +'-input .form-control').val('');
 	$('.message').text('');
 	for ( i = 0 ; i < flashCards.length ; i++){
 		if (flashCards[i].type === cardType){
@@ -79,6 +78,8 @@ function addCard(){
 		localStorage.setItem("flashCardsStore", JSON.stringify(flashCards));
 		$('#' + cardType +'-input .form-control').val('');
 		addCardBtn(flashCards.length - 1);
+		$('#' + cardType +'-input .form-control').val('');
+		$('.save').attr('disabled','disabled');
 	}
 };
 
