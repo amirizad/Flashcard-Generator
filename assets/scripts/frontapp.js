@@ -76,7 +76,6 @@ function addCard(){
 	} else {
 		flashCards.push(card);
 		localStorage.setItem("flashCardsStore", JSON.stringify(flashCards));
-		$('#' + cardType +'-input .form-control').val('');
 		addCardBtn(flashCards.length - 1);
 		$('#' + cardType +'-input .form-control').val('');
 		$('.save').attr('disabled','disabled');
