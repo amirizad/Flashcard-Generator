@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flash Cards</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <link rel="stylesheet" href="assets/styles/style.css"> 
+	<style>
+
+	</style>
+</head>
+<body>
+  <div class="container">
+		<div id="header" class="row ver-spacer">
+			<div id="logo" class="pull-left">
+				<img src="assets/images/logo.png" class="img-responsive" alt="Logo">
+			</div>
+      <div class="btn-group ver-spacer pull-right" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <input type="radio" name="options" value="basic" checked> Basic
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="options" value="cloze"> Cloze
+        </label>
+      </div>
+		</div>
+    <form class="row ver-spacer ">
+      <input type="hidden" id="cardtype" value="basic">
+      <div id="basic-input" class="fortoggle group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-question fa-10x"></i></span>
+          <input type="text" class="form-control" id="front" placeholder="Flashcard Front (Question)">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i>...</i></span>
+          <input type="text" class="form-control" id="back" placeholder="Flashcard Back (Answer)">
+        </div>
+        <button type="button" class="btn btn-primary save" disabled>Save</button>
+      </div>
+      <div id="cloze-input" class="fortoggle group hide">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-arrows-h"></i></span>
+          <input type="text" class="form-control" id="text" placeholder="Enter the full text">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i>...</i></span>
+          <input type="text" class="form-control" id="cloze" placeholder="Enter the Cloze">
+        </div>
+        <button type="button" class="btn btn-primary save" disabled>Save</button>
+      </div>
+      <p class="alert"><i id="addmessage" class="message text-center"></i></p>
+    </form>
+    <div id="flashcards" class="row ver-spacer">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Available Flash Cards</div>
+        <div class="panel-body" id="cards-panel"></div>
+      </div>
+    </div>
+    <div id="basiccard" class="row fortoggle">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Basic Flash Card</div>
+        <div class="panel-body" id="cards-panel">
+          <div id="flipcard" class="flip-container">
+            <div class="flipper">
+              <div class="front">
+                <span class="content" id="cardfront"></span>
+              </div>
+              <div class="back">
+                <font><span class="content" id="cardback"></span></font>
+              </div>
+            </div>
+          </div>
+          <form class=" ver-spacer ">
+            <div class="input-group group">
+              <span class="input-group-addon"><i>...</i></span>
+              <input type="text" class="form-control answer" id="basicanswer" placeholder="Enter your Answer">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-primary send basic" disabled>Submit</button>
+              </div>
+            </div>
+            <p class="alert"><i id="basicmessage" class="message"></i></p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="Clozecard" class="row fortoggle hide">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Cloze-Deleted flashcard</div>
+        <div class="panel-body" id="cards-panel">
+          <div class="closediv">
+            <span class="clozetxt"></span>
+            <p class="alert"><i id="clozemessage" class="message"></i></p>
+          </div>
+          <form class=" ver-spacer ">
+            <div class="input-group group">
+              <span class="input-group-addon"><i>...</i></span>
+              <input type="text" class="form-control answer" id="clozeanswer" placeholder="Enter your Answer">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-primary send cloze" disabled>Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/scripts/bundle.js"></script>
+  <script src="assets/scripts/frontapp.js"></script> 
+</body>
+</html>

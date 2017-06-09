@@ -1,8 +1,13 @@
+var JsonStorage = require('./json.js');
+var jsonFile = new JsonStorage();
+
 function ClozeCard(text, cloze){
   if(this instanceof ClozeCard) {
-		this.cloze = cloze;
-		this.fullText = text;
-		this.partial = this.createPartial();
+	this.type = 'cloze';
+	this.cloze = cloze;
+	this.fullText = text;
+	this.partial = this.createPartial();
+	jsonFile.writeData('c', this);
   } else {
 		return new ClozeCard(text, cloze);
   }    
@@ -15,8 +20,7 @@ ClozeCard.prototype.createPartial = function(){
 		return text.replace(cloze, '...');
 	} else {
 		var err = new Error('"' + this.cloze + '" doesn\'t appear in "' + text + '"');
-		console.log('\n*** Error ***');
-		console.error(err.message);
+		throw err;
 	}
 }
 
